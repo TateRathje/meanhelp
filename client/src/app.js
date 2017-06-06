@@ -1,7 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-const app = angular.module('meanhelp', [uiRouter])
+const meanhelp = angular.module('meanhelp', [uiRouter])
 
 .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 	$urlRouterProvider.otherwise('/');
