@@ -2,23 +2,12 @@
 
 var express = require('express');
 var app = express();
+var path = require('path');
 
 var PORT = process.env.PORT || 3000;
 
-app.all('/*', function(req, res) {
-	res.send(`\
-		<!DOCTYPE html>\
-		<html lang="en">\
-			<head>\
-				<title>'MEAN APP'</title>\
-				<base href="/">\
-			</head>\
-			<body>\
-				<div ui-view></div>\
-				<script src="bundle.js"></script>\
-			</body>\
-		</html>\
-		`);
+app.all('/', function(req, res) {
+	res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 app.listen(PORT, function() {
