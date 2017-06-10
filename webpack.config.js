@@ -74,6 +74,7 @@ module.exports = {
       // Bootstrap 4
       { test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery' }],
   },
+  target: 'web'
   
   devServer: {
     hot: true,
