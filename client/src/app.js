@@ -1,7 +1,8 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import angularSpinner from 'angular-spinner';
 
-const meanhelp = angular.module('meanhelp', [uiRouter])
+const meanhelp = angular.module('meanhelp', [uiRouter, angularSpinner])
 
 .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 	$urlRouterProvider.otherwise('/');
@@ -25,6 +26,9 @@ const meanhelp = angular.module('meanhelp', [uiRouter])
 })
 
 .controller('registerCtrl', require('areas/register/register.controller.js'))
+
+// API Root
+meanhelp.constant('apiRoot', 'https://mysterious-falls-55416.herokuapp.com/api/v1/');
 
 // const	controllers = angular.module("meanhelp.controllers", []);
 
