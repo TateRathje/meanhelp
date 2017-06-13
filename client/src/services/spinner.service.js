@@ -1,26 +1,26 @@
 function spinnerService($rootScope, usSpinnerService) {
-
+  var self = this;
 	this.spinneractive = false;
 
 	// Angular spinner functions
   this.startSpin = function() {
-      if (!$scope.spinneractive) {
+      if (!self.spinneractive) {
         usSpinnerService.spin('spinner-1');
       }
     };
 
    this.stopSpin = function() {
-      if ($scope.spinneractive) {
+      if (self.spinneractive) {
         usSpinnerService.stop('spinner-1');
       }
     };
 
   $rootScope.$on('us-spinner:spin', function(event, key) {
-    $scope.spinneractive = true;
+    self.spinneractive = true;
   });
 
   $rootScope.$on('us-spinner:stop', function(event, key) {
-    $scope.spinneractive = false;
+    self.spinneractive = false;
   });
 }
 

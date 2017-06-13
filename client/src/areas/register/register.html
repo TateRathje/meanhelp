@@ -2,16 +2,16 @@
   <form class="form-signin">
     <h2 class="form-signin-heading">Create Account</h2>
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" ng-model="user.email" required autofocus>
     <label for="inputEmail" class="sr-only">Choose a username</label>
-    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required>
+    <input type="text" id="inputUsername" class="form-control" placeholder="Username" ng-model="user.username" required>
     <label for="inputUsername" class="sr-only">Username</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="user.password"required>
     <div class="checkbox">
       <label>
         <input type="checkbox" value="remember-me"> Show password
       </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="register.saveUser(user)">Sign up</button>
   </form>
 </div>
