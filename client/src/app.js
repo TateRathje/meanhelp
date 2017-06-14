@@ -27,8 +27,11 @@ const meanhelp = angular.module('meanhelp', [uiRouter, 'angularSpinner'])
 
 .controller('registerCtrl', require('areas/register/register.controller.js'))
 
-// API Root
-meanhelp.constant('apiRoot', 'https://mysterious-falls-55416.herokuapp.com/api/v1/');
+// Dev API Root
+meanhelp.constant('apiRoot', 'http://localhost:8080/');
+
+// Real API Root
+//meanhelp.constant('apiRoot', 'https://mysterious-falls-55416.herokuapp.com/api/v1/');
 
 require('./services');
 
