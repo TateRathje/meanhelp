@@ -3,6 +3,7 @@ function RegisterCtrl($state, authenticationService, spinnerService) {
   this.newUser = {};
 
   this.saveUser = function(user) {
+    debugger;
     spinnerService.startSpin();
     this.newUser = angular.copy(user);
     authenticationService.saveUser(user)
