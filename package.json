@@ -2,7 +2,7 @@
   "name": "meanhelp",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "config.js",
   "scripts": {
     "start": "node --inspect server/app",
     "dev": "npm start server/app | webpack-dev-server --progress --colors",
