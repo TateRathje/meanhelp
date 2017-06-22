@@ -1,29 +1,20 @@
 import angular from 'angular';
-import uiRouter from '@uirouter/core';
+import uiRouter from 'angular-ui-router';
 import 'angular-spinner';
+import welcome from './areas/welcome/welcome.js';
+import register from './areas/register/register.js';
+import login from './areas/login/login.js';
+
 
 const meanhelp = angular.module('meanhelp', [uiRouter, 'angularSpinner'])
 
 .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 	$urlRouterProvider.otherwise('/');
-
-	$stateProvider
-		.state('welcome', {
-			url: '/',
-			template: require('areas/welcome/welcome.html')
-		})
-		.state('register', {
-			url: '/register',
-			template: require('areas/register/register.html')
-		})
-		.state('login', {
-			url: '/login',
-			template: require('areas/login/login.html')
-		})
-
-
 	$locationProvider.html5Mode(true);
 })
+.config(welcome)
+.config(register)
+.config(login)
 
 .controller('registerCtrl', require('areas/register/register.controller.js'))
 

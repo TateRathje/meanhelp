@@ -4,7 +4,7 @@
   "description": "",
   "main": "config.js",
   "scripts": {
-    "start": "node --inspect server/app",
+    "start": "node server/app",
     "dev": "npm start server/app | webpack-dev-server --progress --colors",
     "build": "webpack --progress --colors --config webpack.prod.config.js"
   },
@@ -12,9 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@uirouter/angularjs": "^1.0.4",
     "angular": "^1.6.4",
     "angular-spinner": "^1.0.1",
+    "angular-ui-router": "^1.0.3",
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.2",
     "bootstrap": "^4.0.0-alpha.6",
