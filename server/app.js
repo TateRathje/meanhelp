@@ -17,6 +17,7 @@ app.all('/', function(req, res) {
 });
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Dev API Root
 app.use('http://localhost:8080/', router);
