@@ -4,6 +4,7 @@ import 'angular-spinner';
 import welcome from './areas/welcome/welcome.js';
 import register from './areas/register/register.js';
 import login from './areas/login/login.js';
+import profile from './areas/profile/profile.js';
 
 
 const meanhelp = angular.module('meanhelp', [uiRouter, 'angularSpinner'])
@@ -15,8 +16,10 @@ const meanhelp = angular.module('meanhelp', [uiRouter, 'angularSpinner'])
 .config(welcome)
 .config(register)
 .config(login)
+.config(profile)
 
 .controller('registerCtrl', require('areas/register/register.controller.js'))
+.controller('loginCtrl', require('areas/login/login.controller.js'))
 
 // Dev API Root
 meanhelp.constant('apiRoot', 'http://localhost:8080/');

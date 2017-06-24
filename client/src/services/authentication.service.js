@@ -1,5 +1,7 @@
 function authenticationService($http, apiRoot) {
-	debugger;
+	this.loginUser = function(user) {
+		return $http({method: 'POST', url: '/login', data: {user}});
+	}
 	this.saveUser = function(user) {
 		debugger;
 		return $http({method: 'POST', url: '/register', data: {user}});

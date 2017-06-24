@@ -1,9 +1,9 @@
-function RegisterCtrl($state, authenticationService, spinnerService) {
+function LoginCtrl($state, authenticationService, spinnerService) {
 
-  this.saveUser = function(user) {
+  this.loginUser = function(user) {
     debugger;
     spinnerService.startSpin();
-    authenticationService.saveUser(user)
+    authenticationService.loginUser(user)
       // .error(function(data) {
       //   //add proper error handling
       //   console.log(data.error);
@@ -18,4 +18,4 @@ function RegisterCtrl($state, authenticationService, spinnerService) {
 
 }
 
-module.exports = RegisterCtrl;
+module.exports = LoginCtrl;
