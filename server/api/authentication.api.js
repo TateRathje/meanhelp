@@ -3,6 +3,19 @@ var router = express.Router();
 var User = require('../models/user');
 var middle = require('../middleware');
 
+// GET /profile
+router.get('/profile', middle.requiresLogin, function(req, res, next) {
+  debugger;
+  User.findById(req.session.userId)
+    .exec(function(error, user) {
+      if (error) {
+        return next(error);
+      } else {
+        return res.json(user);
+      }
+    })
+});
+
 // POST /login
 router.post('/login', function(req, res, next) {
   debugger;
@@ -14,8 +27,6 @@ router.post('/login', function(req, res, next) {
         return next(err);
       } else {
         req.session.userId = user._id;
-        res.json(user);
-        res.locals.currentUserInfo = user;
         return res.redirect('/profile');
       }
     });

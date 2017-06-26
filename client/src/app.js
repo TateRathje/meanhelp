@@ -20,6 +20,7 @@ const meanhelp = angular.module('meanhelp', [uiRouter, 'angularSpinner'])
 
 .controller('registerCtrl', require('areas/register/register.controller.js'))
 .controller('loginCtrl', require('areas/login/login.controller.js'))
+.controller('profileCtrl', require('areas/profile/profile.controller.js'))
 
 // Dev API Root
 meanhelp.constant('apiRoot', 'http://localhost:8080/');

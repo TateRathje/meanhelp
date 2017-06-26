@@ -1,6 +1,23 @@
-<div class="jumbotron jumbotron-fluid" ng-controller="loginCtrl as login">
-  <div class="container">
-    <h1 class="display-3">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+<div class="site-wrapper" ng-controller="profileCtrl as profile">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="inner cover">
+        <h1 class="cover-heading">USER PROFILE</h1>
+        <hr>
+        <hr>
+        <hr>
+        <h5>User Name: {{profile.userInfo.username}}</h5>
+        <h5>User Email: {{profile.userInfo.email}}</h5>
+        <h5>User Password: {{profile.userInfo.password}}</h5>
+         <hr>
+        <hr>
+        <hr>
+        <!-- <p class="lead">User Name: {{profile.userInfo.username}}</p>
+        <p class="lead">User Email: {{profile.userInfo.email}}</p>
+        <p class="lead">User Password: {{profile.userInfo.password}}</p> -->
+        <a href="#" class="btn btn-lg btn-secondary" ng-click="profile.getUser()">Get Profile</a>
+        </p>
+      </div>
+    </div>
   </div>
 </div>

@@ -31,9 +31,9 @@ app.use(function(req, res, next) {
 // For production build
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.all('/', function(req, res) {
-	res.sendFile(path.join(__dirname, '../public/index.html'));
-});
+// app.all('/*', function(req, res) {
+// 	res.sendFile(path.join(__dirname, '../public/index.html'));
+// });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
