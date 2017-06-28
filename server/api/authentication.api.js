@@ -16,6 +16,20 @@ router.get('/profile', middle.requiresLogin, function(req, res, next) {
     })
 });
 
+// GET /logout
+router.get('/logout', function(req, res, next) {
+  if (req.session) {
+    // delete session object
+    req.session.destroy(function(err) {
+      if (err) {
+        return next(err);
+      } else {
+        return res.redirect('/');
+      }
+    });
+  }
+});
+
 // POST /login
 router.post('/login', function(req, res, next) {
   debugger;
@@ -58,28 +72,21 @@ router.post('/register', function(req, res, next) {
     };
 
     User.create(userData, function(error, user) {
-     if (error) {
-       return next(error);
-     } else {
-      debugger;
+      if (error) {
+        return next(error);
+      } else {
+        debugger;
         req.session.userId = user._id;
         return res.send("you just created a user");
         return res.redirect('/profile');
-     }
+      }
     });
 
- } else {
-   var err = new Error('All fields required.');
-   err.status = 400;
-   return next(err);
- }
+  } else {
+    var err = new Error('All fields required.');
+    err.status = 400;
+    return next(err);
+  }
 });
-
-// router.get('/profile', function(req, res, next) {
-//   debugger;
-//   res.send("Here is your profile");
-// });
-
-
 
 module.exports = router;
