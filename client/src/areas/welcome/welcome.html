@@ -8,9 +8,9 @@
             <a class="nav-link active" href="#">Home</a>
             <a class="nav-link" href="#">Features</a>
             <a class="nav-link" ui-sref="/profile" ng-controller="profileCtrl as profile" ng-show="profile.showProfile">Profile</a>
+            <a class="nav-link" ui-sref="/login" ng-controller="profileCtrl as profile" ng-show="profile.showSignIn">Sign In</a>
             <a class="nav-link" ui-sref="/register" ng-controller="profileCtrl as profile" ng-show="profile.showRegister">Register</a>
-            <a class="nav-link" ui-sref="/login">Sign In</a>
-            <a class="nav-link" href="#" ng-controller="profileCtrl as profile" ng-click="profile.logout()">Logout</a>
+            <a class="nav-link" href="#" ng-controller="profileCtrl as profile" ng-click="profile.logout()" ng-show="profile.showLogout">Logout</a>
           </nav>
         </div>
       </div>
