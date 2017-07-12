@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
-    <base href="/">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  <base href="/">
+</head>
 
-  <body>
-    <div ui-view></div>
-		<script src="bundle.js"></script>
-  </body>
+<body>
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <div ng-include="'navbar.html'"></div>
+        <div ui-view></div>
+        <div ng-include="'footer.html'"></div>
+      </div>
+    </div>
+  </div>
+  <script src="bundle.js"></script>
+</body>
+
 </html>
-
-

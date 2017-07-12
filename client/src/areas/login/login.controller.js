@@ -5,7 +5,6 @@ function LoginCtrl($state, authenticationService, spinnerService) {
   this.userInfo = {};
 
   this.loginUser = function(user) {
-    debugger;
     spinnerService.startSpin();
     authenticationService.loginUser(user).then(function(data) {
       self.userInfo = data.data;

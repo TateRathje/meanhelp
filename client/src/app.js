@@ -10,6 +10,7 @@ import login from './areas/login/login.js';
 import profile from './areas/profile/profile.js';
 
 
+
 const meanhelp = angular.module('meanhelp', [uiRouter, modal, 'angularSpinner', 'ui.bootstrap' ])
 
 .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
