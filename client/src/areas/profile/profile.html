@@ -1,22 +1,108 @@
-<div class="site-wrapper" ng-controller="profileCtrl as profile">
+<div class="site-wrapper profile" ng-controller="profileCtrl as profile">
   <div class="site-wrapper-inner">
     <div class="cover-container">
+      <div ng-include="'navbar.html'"></div>
       <div class="inner cover">
-        <h1 class="cover-heading">USER PROFILE</h1>
-        <hr>
-        <hr>
-        <hr>
-        <h5>User Name: {{profile.userInfo.username}}</h5>
-        <h5>User Email: {{profile.userInfo.email}}</h5>
-        <h5>User Password: {{profile.userInfo.password}}</h5>
-         <hr>
-        <hr>
-        <hr>
-        <!-- <p class="lead">User Name: {{profile.userInfo.username}}</p>
-        <p class="lead">User Email: {{profile.userInfo.email}}</p>
-        <p class="lead">User Password: {{profile.userInfo.password}}</p> -->
-        <a href="#" class="btn btn-lg btn-secondary" ng-click="profile.getUser()">Get Profile</a>
-        </p>
+        <div>
+          <h1 class="cover-heading">{{profile.userInfo.username}}'s PROFILE</h1>
+          <br>
+          <br>
+          <br>
+          <div class="profile-info">
+            <h5>User Name: {{profile.userInfo.username}}</h5>
+            <h5>User Email: {{profile.userInfo.email}}</h5>
+            <h5>User Password: {{profile.userInfo.password}}</h5>
+            <h5>User Skill Set:</h5>
+            <div>
+              <ul ng-repeat="(key, value) in profile.userInfo.skills">
+                <li ng-show="value === true">{{key}}</li>
+              </ul>
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+          <!-- <a href="#" class="btn btn-lg btn-secondary" ng-click="profile.openProfileSkillsModal()">Set Skills</a> -->
+          <!-- <a href="#" class="btn btn-lg btn-secondary" ng-click="profile.go('/client/src/areas/profile/profileSkills.html')">Set Skills</a> -->
+          <a href="#" class="btn btn-lg btn-info" ng-click="editSkills=true" ng-hide="editSkills===true">Set Skills</a>
+          <br>
+          <br>
+          <br>
+          <div ng-show="editSkills">
+            <div class="checkbox-font">
+              <div class="form-check form-check-inline ">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" ng-model="profile.userInfo.skills.mechanic">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description" >Mechanic</span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" ng-model="profile.userInfo.skills.computer">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Computer</span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline disabled">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" ng-model="profile.userInfo.skills.babysitting">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Babysitting</span>
+                </label>
+              </div>
+            </div>
+            <div class="checkbox-font">
+              <div class="form-check form-check-inline">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" ng-model="profile.userInfo.skills.cleaning">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Cleaning</span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" ng-model="profile.userInfo.skills.healthcare">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Healthcare</span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline disabled">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">More Skills</span>
+                </label>
+              </div>
+            </div>
+            <div class="checkbox-font">
+              <div class="form-check form-check-inline">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">More Skills</span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">More Skills</span>
+                </label>
+              </div>
+              <div class="form-check form-check-inline disabled">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">More Skills</span>
+                </label>
+              </div>
+            </div>
+            <br>
+            <br>
+            <button type="button" class="btn btn-lg btn-info" ng-click="profile.updateUser(profile.userInfo); editSkills=false" ng-hide="editSkills===false">Save Skills</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

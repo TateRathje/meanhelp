@@ -1,0 +1,17 @@
+.profile {
+  @media (min-width: 40em) {
+    .masthead, .mastfoot, .cover-container, .profile-info {
+      width: 32%;
+    }
+  }
+  .profile-info {
+  	text-align: left;
+  }
+  .checkbox-font {
+    font-size: 1.2rem;
+  }
+  .custom-control-input:checked ~ .custom-control-indicator {
+    color: #fff;
+    background-color: #5bc0de;
+}
+}

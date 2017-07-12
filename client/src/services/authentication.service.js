@@ -14,9 +14,10 @@ function authenticationService($http, apiRoot) {
 
   this.saveUser = function(user) {
     return $http({ method: 'POST', url: '/register', data: { user } });
+  };
 
-
-    // return $http.post(apiRoot + 'register', user);
+  this.updateUser = function(userInfo) {
+    return $http({ method: 'PUT', url: '/profile/' + userInfo._id, data: { userInfo } });
   };
 }
 

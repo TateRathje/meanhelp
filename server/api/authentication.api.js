@@ -5,7 +5,6 @@ var middle = require('../middleware');
 
 // GET /profile
 router.get('/profile', middle.requiresLogin, function(req, res, next) {
-  debugger;
   User.findById(req.session.userId)
     .exec(function(error, user) {
       if (error) {
@@ -14,6 +13,19 @@ router.get('/profile', middle.requiresLogin, function(req, res, next) {
         return res.json(user);
       }
     })
+});
+
+// PUT /profile/:id
+router.put('/profile/:id', function(req, res, next) {
+  var id = req.params.id;
+  var user = req.body;
+  var newSkills = req.body.userInfo.skills;
+  User.findByIdAndUpdate(id, { $set: { skills: newSkills }}, {new: true}, function(err, user) {
+    if (err) {
+      return next(err);
+    }
+    res.json(user);
+  }) 
 });
 
 // GET /logout
@@ -32,7 +44,6 @@ router.get('/logout', function(req, res, next) {
 
 // POST /login
 router.post('/login', function(req, res, next) {
-  debugger;
   if (req.body.user.email && req.body.user.password) {
     User.authenticate(req.body.user.email, req.body.user.password, function(error, user) {
       if (error || !user) {
@@ -53,7 +64,6 @@ router.post('/login', function(req, res, next) {
 
 // POST /register
 router.post('/register', function(req, res, next) {
-  debugger;
   if (req.body.user.email &&
     req.body.user.username &&
     req.body.user.password &&
