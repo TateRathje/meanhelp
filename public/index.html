@@ -11,15 +11,9 @@
 </head>
 
 <body>
-  <div class="site-wrapper">
-    <div class="site-wrapper-inner">
-      <div class="cover-container">
-        <div ng-include="'navbar.html'"></div>
-        <div ui-view></div>
-        <div ng-include="'footer.html'"></div>
-      </div>
-    </div>
-  </div>
+  <div ng-include="'navbar.html'"></div>
+  <div ui-view></div>
+  <div ng-include="'footer.html'"></div>
   <script src="bundle.js"></script>
 </body>
 

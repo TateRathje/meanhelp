@@ -1,7 +1,6 @@
 function RegisterCtrl($state, authenticationService, spinnerService) {
 
 this.saveUser = function(user) {
-  debugger;
   spinnerService.startSpin();
   authenticationService.saveUser(user)
     // .error(function(data) {

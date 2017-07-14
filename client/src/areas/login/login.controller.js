@@ -9,9 +9,8 @@ function LoginCtrl($state, authenticationService, spinnerService) {
     authenticationService.loginUser(user).then(function(data) {
       self.userInfo = data.data;
     }).finally(function() {
-        // angular.copy({}, user);
         spinnerService.stopSpin();
-        $state.go('/profile');
+        $state.go('/dashboard');
       });
   };
 

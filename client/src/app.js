@@ -1,6 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-var uiBootstrap = require('angular-ui-bootstrap');
+import ngAnimate from 'angular-animate';
+import uiBootstrap from 'angular-ui-bootstrap';
 import tpls from 'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'
 import modal from 'angular-ui-bootstrap/src/modal';
 import 'angular-spinner';
@@ -8,10 +9,12 @@ import welcome from './areas/welcome/welcome.js';
 import register from './areas/register/register.js';
 import login from './areas/login/login.js';
 import profile from './areas/profile/profile.js';
+import dashboard from './areas/dashboard/dashboard.js';
+import help from './areas/help/help.js';
 
 
 
-const meanhelp = angular.module('meanhelp', [uiRouter, modal, 'angularSpinner', 'ui.bootstrap' ])
+const meanhelp = angular.module('meanhelp', [ uiRouter, modal, uiBootstrap, 'angularSpinner'])
 
 .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 	$urlRouterProvider.otherwise('/');
@@ -21,6 +24,8 @@ const meanhelp = angular.module('meanhelp', [uiRouter, modal, 'angularSpinner', 
 .config(register)
 .config(login)
 .config(profile)
+.config(dashboard)
+.config(help)
 .config(function ($qProvider) {
     $qProvider.errorOnUnhandledRejections(false);
 })
@@ -28,6 +33,8 @@ const meanhelp = angular.module('meanhelp', [uiRouter, modal, 'angularSpinner', 
 .controller('registerCtrl', require('areas/register/register.controller.js'))
 .controller('loginCtrl', require('areas/login/login.controller.js'))
 .controller('profileCtrl', require('areas/profile/profile.controller.js'))
+.controller('dashboardCtrl', require('areas/dashboard/dashboard.controller.js'))
+.controller('helpCtrl', require('areas/help/help.controller.js'))
 .controller('profileSkillsModalCtrl', require('components/modals/profile/profileSkillsModal.controller.js'))
 
 // Dev API Root

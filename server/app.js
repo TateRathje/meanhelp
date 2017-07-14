@@ -5,7 +5,8 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var path = require('path');
 var db = require('./database');
-var router = require('./api/authentication.api.js');
+var authRoutes = require('./api/authentication.api.js');
+var messageRoutes = require('./api/message.api.js');
 
 var PORT = process.env.PORT || 3000;
 
@@ -38,8 +39,9 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Dev API Root
-app.use('/', router);
+// Dev API Roots
+app.use('/', authRoutes);
+app.use('/message', messageRoutes);
 
 // Real API Root
 //app.use('/api/v1/', router);
