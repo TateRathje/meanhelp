@@ -10,7 +10,7 @@ messageRoutes.post('/sendmessage', function(req, res) {
   debugger;
   var options = {
     auth: {
-      api_key: process.env.SENDGRID_API || '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' 
+      api_key: process.env.SENDGRID_API || 'API_KEY' 
     }
   }
   var mailer = nodemailer.createTransport(sgTransport(options));
