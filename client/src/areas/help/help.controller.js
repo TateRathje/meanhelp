@@ -1,8 +1,9 @@
-function HelpCtrl($state, $uibModal, messageService, spinnerService) {
+function HelpCtrl($state, $uibModal, $localStorage, messageService, spinnerService) {
 
   var self = this;
 
   this.loading = false;
+  this.user = $localStorage.user;
   this.allMessages = [];
 
   this.sendMessage = function(form) {

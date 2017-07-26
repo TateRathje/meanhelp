@@ -2,6 +2,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngAnimate from 'angular-animate';
 import uiBootstrap from 'angular-ui-bootstrap';
+import 'ngstorage';
 import tpls from 'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'
 import modal from 'angular-ui-bootstrap/src/modal';
 import 'angular-spinner';
@@ -14,7 +15,7 @@ import help from './areas/help/help.js';
 
 
 
-const meanhelp = angular.module('meanhelp', [ uiRouter, modal, uiBootstrap, 'angularSpinner'])
+const meanhelp = angular.module('meanhelp', [ uiRouter, modal, uiBootstrap, 'ngStorage', 'angularSpinner'])
 
 .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
 	$urlRouterProvider.otherwise('/');

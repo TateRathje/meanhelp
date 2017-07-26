@@ -2,7 +2,7 @@
   <div class="inner">
     <h3 class="masthead-brand">Helper</h3>
     <nav class="nav nav-masthead">
-      <a class="nav-link active" href="#">Home</a>
+      <a class="nav-link active" href="#" ng-controller="profileCtrl as profile" ng-show="profile.showHome">Home</a>
       <a class="nav-link" href="#">Features</a>
       <a class="nav-link" ui-sref="/profile" ng-controller="profileCtrl as profile" ng-show="profile.showProfile">Profile</a>
       <a class="nav-link" ui-sref="/login" ng-controller="profileCtrl as profile" ng-show="profile.showSignIn">Sign In</a>

@@ -1,4 +1,4 @@
-function LoginCtrl($state, authenticationService, spinnerService) {
+function LoginCtrl($state, $localStorage, authenticationService, spinnerService) {
   
   var self = this;
 
@@ -6,8 +6,9 @@ function LoginCtrl($state, authenticationService, spinnerService) {
 
   this.loginUser = function(user) {
     spinnerService.startSpin();
-    authenticationService.loginUser(user).then(function(data) {
-      self.userInfo = data.data;
+    authenticationService.loginUser(user).then(function(result) {
+      self.userInfo = result.data;
+      $localStorage.user = result.data;
     }).finally(function() {
         spinnerService.stopSpin();
         $state.go('/dashboard');

@@ -6,7 +6,7 @@
           <div class="inner">
             <a href=""><h3 class="masthead-brand" ng-controller="profileCtrl as profile" ng-click="profile.go('/dashboard')">Helper</h3></a>
             <nav class="nav nav-masthead">
-              <a class="nav-link" ui-sref="/dashboard">Home</a>
+              <a class="nav-link" ui-sref="/dashboard" ng-controller="profileCtrl as profile" ng-show="profile.showHome">Home</a>
               <a class="nav-link" href="#">Features</a>
               <a class="nav-link" ui-sref="/profile" ng-controller="profileCtrl as profile" ng-show="profile.showProfile">Profile</a>
               <a class="nav-link" ui-sref="/login" ng-controller="profileCtrl as profile" ng-show="profile.showSignIn">Sign In</a>

@@ -30,10 +30,10 @@
       <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">
-            <a class="nav-link active" ui-sref="/dashboard">Overview <span class="sr-only">(current)</span></a>
+            <a class="nav-link" ui-sref="/dashboard">Overview <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
+            <a class="nav-link active" href="#">Help</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Analytics</a>
@@ -62,34 +62,30 @@
         <section class="row text-center placeholders">
           <div class="col-sm-6 offset-sm-3">
             <form class="help-request">
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" ng-model="form.email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div> -->
+              <div class="form-group">
+                <label for="exampleSelect1">What kind of help do you need?</label>
+                <select class="form-control" id="exampleSelect1" ng-model="form.type">
+                  <option ng-repeat="(key, value) in help.user.skills">{{key}}</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Subject</label>
                 <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" ng-model="form.subject">
               </div>
               <div class="form-group">
-                <label for="exampleSelect1">What kind of help do you need?</label>
-                <select class="form-control" id="exampleSelect1" ng-model="form.type">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-              <div class="form-group">
                 <label for="exampleTextarea">Help Request</label>
                 <textarea class="form-control" id="exampleTextarea" rows="12" ng-model="form.message"></textarea>
               </div>
-              <div class="form-group">
+              <!--  <div class="form-group">
                 <label for="exampleInputFile">File input</label>
                 <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
                 <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-              </div>
+              </div> -->
               <button type="submit" class="btn btn-primary" ng-click="help.sendMessage(form)">Send</button>
             </form>
           </div>
