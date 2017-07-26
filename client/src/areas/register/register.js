@@ -1,13 +1,10 @@
-// (function() {
-//   'use strict'
+export default function ($stateProvider) {
 
-//   angular.module('meanhelp')
-//     .config(function($stateProvider) {
-//       $stateProvider
-//         .state('register', {
-//           url: '/register',
-//           template: require('areas/register/register.html')
-//         });
-//     });
-// })();
+  $stateProvider
+    .state('/register', {
+      url: '/register',
+      template: require('areas/register/register.html')
+    });
 
+
+}
