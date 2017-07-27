@@ -15,6 +15,23 @@ authRoutes.get('/profile', middle.requiresLogin, function(req, res, next) {
     })
 });
 
+// GET /profiles
+authRoutes.post('/profiles', function(req, res, next) {
+  debugger;
+  var prop = "skills.";
+  var query = {};
+  var type = req.body.form.type;
+  var queryString = prop += type;
+  query[queryString] = true;
+  User.find(query, function(err, users) {
+    if (err) {
+      return next(err);
+    } else {
+      res.json(users);
+    }
+  })
+});
+
 // PUT /profile/:id
 authRoutes.put('/profile/:id', function(req, res, next) {
   var id = req.params.id;

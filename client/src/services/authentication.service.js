@@ -4,6 +4,10 @@ function authenticationService($http, apiRoot) {
     return $http.get('/profile');
   };
 
+  this.getUsers = function(form) {
+    return $http({ method: 'POST', url: '/profiles', data: { form } });
+  };
+
   this.loginUser = function(user) {
     return $http({ method: 'POST', url: '/login', data: { user } });
   };
